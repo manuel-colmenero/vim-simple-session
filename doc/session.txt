@@ -1,0 +1,127 @@
+*session.txt* Super simple sessions
+
+Author: Manuel Colmenero <http://colmenero.es/>
+License: Same terms as Vim itself (see |license|)
+
+      ___| _)                 |       ___|                _)
+    \___ \  | __ `__ \  __ \  |  _ \\___ \   _ \  __|  __| |  _ \  __ \
+          | | |   |   | |   | |  __/      |  __/\__ \\__ \ | (   | |   |
+    _____/ _/_|  _|  _| .__/ _/\___|_____/ \___/____/____/_|\___/ _|  _|
+                       _|
+
+INTRODUCTION                                    *simple-session*
+
+Simple session is a straightforward, no hassle plugin for handling named
+sessions in VIM.
+
+Just type away |:Session| {name} for creating new sessions or switching to
+old sessions. |:SList|, |:SDelete| and |:SQuit| pretty much do what they
+promise. Commands that take an argument support autocompletion.
+
+Sessions are automatically saved when VIM is closed or an old session is
+opened up.
+
+If present, this plugin also integrates with vim-fugitive (|:SGit| for going
+to a sesion named like the current git branch), and also with CtrlP,
+|:CtrlPSession| enables a mode to switch between sessions (you need to enable
+the extension first, see |:CtrlPSession|).
+
+This plugin is just a wrapper for |:mksession|, so check out 'sessionoptions'
+for choosing what VIM stores in the session. I suggest removing `blank`, which
+is basically useless; and specially `options`, in order to prevent stale options
+in sessions.
+
+You can also add an indicator to your status bar with |session#statusbar()|.
+Some more functions are detailed in |simple-session-scripting|.
+
+COMMANDS                                        *simple-session-commands*
+
+                                                *simple-session-:Session*
+:Session [{session}]    With no arguments, it displays the current session
+                        (if any).
+
+                        With a session name it will:
+                        - Create a new session if it doesn't exist. Or
+                        - Just switch to that session.
+
+                        Windows are preserved if there's no previous session
+                        open and the session doesn't exist, allowing to save
+                        the current layout.
+
+                        If there's an active session it'll be saved and
+                        closed.
+
+                                                *simple-session-:SList*
+:SList                  Lists sessions, the current one marked with an
+                        asterisk (if any).
+
+                                                *simple-session-:SQuit*
+:SQuit                  Saves the session and closes all the buffers.
+
+                                                *simple-session-:SDelete*
+:SDelete [{session}]    Without an argument, closes and deletes the current
+                        session.
+
+                        With an argument, it deletes the given session. It can
+                        take more than one argument. If the name of the
+                        current session is passed, it'll be also closed.
+
+                                                *simple-session-:SGit*
+:SGit                   Calls |:Session| with the name of the current git
+                        branch as parameter.
+
+                        This command currently requires vim-fugitive to be
+                        installed to work.
+
+                                                *simple-session-:CtrlPSession*
+:CtrlPSession           Open up CtrlP with a list of saved sessions. Pick one
+                        to switch to it. Current session (if any) is stored.
+
+                        For this to work you have (of course) to have CtrlP
+                        installed and also add this to your .vimrc: >
+                            let g:ctrlp_extensions = ['session']
+                        <
+
+OPTIONS                                         *simple-session-options*
+
+                                                *simple-session-g:session_dir*
+g:session_dir           string (default "~/.vim_sessions/")
+
+                        Specifies where the VIM session files are to be
+                        stored.
+
+STATUSLINE                                      *simple-session-statusline*
+
+                                                *session#statusline()*
+Add %{session#statusline()} to your 'statusline' option to get an indicator of
+the current session (if any). Example:
+>
+    set statusline=%<%f\ %h%m%r%{session#statusline()}%=%-14.(%l,%c%V%)\ %P
+<
+
+SCRIPTING                                       *simple-session-scripting*
+
+Some useful functions for using along the commands when writing own "session
+aware" scripts.
+
+                                                *session#active()*
+session#active()        Boolean
+                        Returns true if there is an active session, false
+                        otherwise.
+
+                                                *session#current()*
+session#current()       String
+                        Returns the name of the current session, empty string
+                        if no current session open.
+
+                                                *session#list()*
+session#list()          Array
+                        Returns an array with all the available sessions.
+
+ABOUT                                           *simple-session-about*
+
+ctrlp.vim: https://github.com/kien/ctrlp.vim
+vim-fugitive: https://github.com/tpope/vim-fugitive
+
+Manuel Colmenero
+http://colmenero.es/
