@@ -127,12 +127,12 @@ endfunction
 "
 " User exposed commands.
 "
-command -nargs=? -complete=customlist,s:CompleteSession Session call s:SwitchSession("<args>")
-command -nargs=? -complete=customlist,s:CompleteSession SDelete call s:DeleteSession("<args>")
-command -nargs=* SList call s:ListSessions()
-command -nargs=0 SQuit call session#quit()
-command -nargs=0 SGit call s:GitSession()
-command -nargs=0 CtrlPSession call s:CtrlPSession()
+command! -nargs=? -complete=customlist,s:CompleteSession Session call s:SwitchSession("<args>")
+command! -nargs=? -complete=customlist,s:CompleteSession SDelete call s:DeleteSession("<args>")
+command! -nargs=* SList call s:ListSessions()
+command! -nargs=0 SQuit call session#quit()
+command! -nargs=0 SGit call s:GitSession()
+command! -nargs=0 CtrlPSession call s:CtrlPSession()
 
 "
 " Save session on quit.
