@@ -32,14 +32,14 @@ Just copy the files to your `~/.vim/` directory, or see alternatives below.
 Installation with [pathogen.vim](https://github.com/tpope/vim-pathogen):
 
     cd ~/.vim/bundle
-    git clone git://github.com/
+    git clone git://github.com/manuel-colmenero/vim-simple-session
 
 
 ### Vundle
 
 With [Vundle](https://github.com/gmarik/Vundle.vim), add this to your .vimrc:
 
-    Plugin 'tpope/vim-fugitive'
+    Plugin 'manuel-colmenero/vim-simple-session'
 
 And then run in VIM:
 

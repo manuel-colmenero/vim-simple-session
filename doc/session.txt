@@ -123,5 +123,5 @@ ABOUT                                           *simple-session-about*
 ctrlp.vim: https://github.com/kien/ctrlp.vim
 vim-fugitive: https://github.com/tpope/vim-fugitive
 
-Manuel Colmenero
-http://colmenero.es/
+Get the latest and the greatest:
+https://github.com/manuel-colmenero/vim-simple-session
