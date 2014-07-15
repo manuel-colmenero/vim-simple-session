@@ -115,7 +115,7 @@ endfunction
 " Shows up CtrlP with the list of open sessions (current is not shown)
 "
 function! s:CtrlPSession()
-	if !exists("*ctrlp#init")
+	if !exists(":CtrlP")
         echohl WarningMsg
 		echomsg "Error: CtrlP not installed."
         echohl None
