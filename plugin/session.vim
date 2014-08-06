@@ -138,5 +138,5 @@ command! -nargs=0 CtrlPSession call s:CtrlPSession()
 " Save session on quit.
 "
 augroup SimpleSession
-	autocmd VimLeave * call session#save()
+	autocmd BufEnter,VimLeave * call session#save()
 augroup END
