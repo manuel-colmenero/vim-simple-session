@@ -5,7 +5,7 @@
 " License: Same terms as Vim itself (see :h license)
 "
 if exists("g:loaded_lib_session")
-	" finish
+	finish
 endif
 let g:loaded_lib_session = 1
 
