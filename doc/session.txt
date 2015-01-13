@@ -18,8 +18,8 @@ Just type away |:Session| {name} for creating new sessions or switching to
 old sessions. |:SList|, |:SDelete| and |:SQuit| pretty much do what they
 promise. Commands that take an argument support autocompletion.
 
-Sessions are automatically saved when VIM is closed or an old session is
-opened up.
+Sessions are automatically saved every time a new buffer is created, when VIM is
+closed or an old session is opened up.
 
 If present, this plugin also integrates with vim-fugitive (|:SGit| for going
 to a sesion named like the current git branch), and also with CtrlP,
