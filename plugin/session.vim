@@ -135,7 +135,7 @@ command! -nargs=0 SGit call s:GitSession()
 command! -nargs=0 CtrlPSession call s:CtrlPSession()
 
 "
-" Save session on quit.
+" Save session on buffer creation and on VIM exit.
 "
 augroup SimpleSession
 	autocmd BufEnter,VimLeave * call session#save()
