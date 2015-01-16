@@ -15,8 +15,8 @@ let g:loaded_lib_session = 1
 if !exists("g:session_dir")
 	let g:session_dir = $HOME . "/.vim_sessions"
 endif
-if !isdirectory(g:session_dir)
-	call mkdir(g:session_dir, "p")
+if !isdirectory(expand(g:session_dir))
+	call mkdir(expand(g:session_dir), "p")
 endif
 
 "
