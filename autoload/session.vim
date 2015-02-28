@@ -51,6 +51,7 @@ endfunction
 " Returns the session name given the session path.
 "
 function! session#get_name(path)
+	let l:wildignore = &wildignore
 	set wildignore=
 	return fnamemodify(a:path, ":t:r")
 	let &wildignore = l:wildignore
