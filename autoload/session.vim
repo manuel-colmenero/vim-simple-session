@@ -53,8 +53,9 @@ endfunction
 function! session#get_name(path)
 	let l:wildignore = &wildignore
 	set wildignore=
-	return fnamemodify(a:path, ":t:r")
+	let l:result = fnamemodify(a:path, ":t:r")
 	let &wildignore = l:wildignore
+	return l:result
 endfunction
 
 "
